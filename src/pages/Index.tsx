@@ -1,27 +1,36 @@
+
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import InputSection from '@/components/InputSection';
 import AnalysisResults from '@/components/AnalysisResults';
+
 const Index = () => {
   const [analysisData, setAnalysisData] = useState<{
     content: string;
     type: 'text' | 'url' | 'file';
   } | null>(null);
   const [showInput, setShowInput] = useState(false);
+
   const handleAnalyze = (content: string, type: 'text' | 'url' | 'file') => {
     setAnalysisData({
       content,
       type
     });
   };
+
   const handleShowInput = (type: 'paste' | 'upload') => {
     setShowInput(true);
   };
-  return <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 relative">
-      {/* Subtle newspaper background pattern */}
-      <div className="absolute inset-0 opacity-[0.03] bg-repeat" style={{
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M8 8h2v2H8V8zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm0 4h2v2H8v-2zm4-48h2v2h-2V8zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-    }} />
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/40 relative">
+      {/* Newspaper background image */}
+      <div 
+        className="absolute inset-0 opacity-[0.08] bg-cover bg-center bg-no-repeat" 
+        style={{
+          backgroundImage: `url("/lovable-uploads/b3d068a8-4706-4f30-bf9f-dde55f14f47d.png")`
+        }} 
+      />
       
       <Header />
       
@@ -57,13 +66,16 @@ const Index = () => {
 
         {/* Input Section - Animated entrance */}
         <div className={`transition-all duration-500 transform ${showInput ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
-          {showInput && <div className="mb-16">
+          {showInput && (
+            <div className="mb-16">
               <InputSection onAnalyze={handleAnalyze} />
-            </div>}
+            </div>
+          )}
         </div>
 
         {/* Search Results Section */}
-        {!analysisData && !showInput && <div className="max-w-5xl mx-auto">
+        {!analysisData && !showInput && (
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-4xl font-bold text-slate-800 text-center mb-12">
               Ready to Analyze
             </h2>
@@ -78,11 +90,14 @@ const Index = () => {
                 Get insights on sentiment, political leaning, and discover alternative perspectives
               </p>
             </div>
-          </div>}
+          </div>
+        )}
         
-        {analysisData && <div className="mt-16 animate-fade-in">
+        {analysisData && (
+          <div className="mt-16 animate-fade-in">
             <AnalysisResults content={analysisData.content} type={analysisData.type} />
-          </div>}
+          </div>
+        )}
       </main>
 
       {/* Enhanced Footer */}
@@ -99,6 +114,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
