@@ -51,96 +51,96 @@ const InputSection: React.FC<InputSectionProps> = ({ onAnalyze }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+    <div className="max-w-5xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-slate-800 mb-6">
           Analyze News Articles for Bias
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
           Paste an article, enter a URL, or upload a file to get detailed bias analysis, 
           sentiment scoring, and alternative perspectives from diverse sources.
         </p>
       </div>
 
-      <Card className="shadow-lg border-0 bg-white">
-        <CardContent className="p-6">
-          {/* Tab Navigation */}
-          <div className="flex space-x-1 bg-gray-100 p-1 rounded-lg mb-6">
+      <Card className="shadow-2xl border-0 bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden">
+        <CardContent className="p-8">
+          {/* Enhanced Tab Navigation */}
+          <div className="flex space-x-2 bg-slate-100/80 p-2 rounded-2xl mb-8 backdrop-blur-sm">
             <button
               onClick={() => setActiveTab('text')}
-              className={`flex-1 flex items-center justify-center space-x-2 py-2 px-4 rounded-md transition-all ${
+              className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 rounded-xl transition-all duration-300 font-medium ${
                 activeTab === 'text'
-                  ? 'bg-white text-blue-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-blue-600 shadow-lg transform scale-[1.02]'
+                  : 'text-slate-600 hover:text-slate-800 hover:bg-white/50'
               }`}
             >
-              <FileText size={18} />
+              <FileText size={20} />
               <span>Paste Article</span>
             </button>
             <button
               onClick={() => setActiveTab('url')}
-              className={`flex-1 flex items-center justify-center space-x-2 py-2 px-4 rounded-md transition-all ${
+              className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 rounded-xl transition-all duration-300 font-medium ${
                 activeTab === 'url'
-                  ? 'bg-white text-blue-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-blue-600 shadow-lg transform scale-[1.02]'
+                  : 'text-slate-600 hover:text-slate-800 hover:bg-white/50'
               }`}
             >
-              <Link size={18} />
+              <Link size={20} />
               <span>Article URL</span>
             </button>
             <button
               onClick={() => setActiveTab('file')}
-              className={`flex-1 flex items-center justify-center space-x-2 py-2 px-4 rounded-md transition-all ${
+              className={`flex-1 flex items-center justify-center space-x-3 py-4 px-6 rounded-xl transition-all duration-300 font-medium ${
                 activeTab === 'file'
-                  ? 'bg-white text-blue-600 shadow-sm'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-white text-blue-600 shadow-lg transform scale-[1.02]'
+                  : 'text-slate-600 hover:text-slate-800 hover:bg-white/50'
               }`}
             >
-              <Upload size={18} />
+              <Upload size={20} />
               <span>Upload File</span>
             </button>
           </div>
 
-          {/* Input Content */}
-          <div className="mb-6">
+          {/* Enhanced Input Content */}
+          <div className="mb-8">
             {activeTab === 'text' && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="space-y-4">
+                <label className="block text-lg font-semibold text-slate-700">
                   Article Content
                 </label>
                 <Textarea
-                  placeholder="Paste your news article here..."
+                  placeholder="Paste your news article here... We'll analyze it for bias, sentiment, and tone."
                   value={articleText}
                   onChange={(e) => setArticleText(e.target.value)}
-                  className="min-h-[200px] resize-none border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                  className="min-h-[250px] resize-none border-2 border-slate-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 rounded-2xl bg-slate-50/50 text-slate-700 text-base leading-relaxed p-6"
                 />
               </div>
             )}
 
             {activeTab === 'url' && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="space-y-4">
+                <label className="block text-lg font-semibold text-slate-700">
                   Article URL
                 </label>
                 <Input
                   placeholder="https://example.com/news-article"
                   value={articleUrl}
                   onChange={(e) => setArticleUrl(e.target.value)}
-                  className="border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                  className="border-2 border-slate-200 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 rounded-2xl bg-slate-50/50 text-base py-6 px-6"
                 />
               </div>
             )}
 
             {activeTab === 'file' && (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="space-y-4">
+                <label className="block text-lg font-semibold text-slate-700">
                   Upload Article File
                 </label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 transition-colors">
-                  <Upload className="mx-auto w-12 h-12 text-gray-400 mb-4" />
-                  <div className="space-y-2">
-                    <p className="text-gray-600">Click to upload or drag and drop</p>
-                    <p className="text-sm text-gray-500">TXT, DOC, or PDF files (Max 10MB)</p>
+                <div className="relative border-3 border-dashed border-slate-300 rounded-2xl p-12 text-center hover:border-blue-400 hover:bg-blue-50/30 transition-all duration-300 bg-slate-50/30 group cursor-pointer">
+                  <Upload className="mx-auto w-16 h-16 text-slate-400 mb-6 group-hover:text-blue-500 transition-colors duration-300" />
+                  <div className="space-y-3">
+                    <p className="text-slate-700 text-lg font-medium">Click to upload or drag and drop</p>
+                    <p className="text-slate-500">TXT, DOC, or PDF files (Max 10MB)</p>
                   </div>
                   <input
                     type="file"
@@ -153,21 +153,21 @@ const InputSection: React.FC<InputSectionProps> = ({ onAnalyze }) => {
             )}
           </div>
 
-          {/* Analyze Button */}
+          {/* Enhanced Analyze Button */}
           <Button
             onClick={handleAnalyze}
             disabled={isAnalyzing || (activeTab === 'text' && !articleText.trim()) || (activeTab === 'url' && !articleUrl.trim())}
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 text-lg font-medium"
+            className="w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white py-6 text-xl font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             {isAnalyzing ? (
-              <div className="flex items-center space-x-2">
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              <div className="flex items-center justify-center space-x-3">
+                <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
                 <span>Analyzing Article...</span>
               </div>
             ) : (
-              <div className="flex items-center space-x-2">
-                <Search size={20} />
-                <span>Analyze for Bias</span>
+              <div className="flex items-center justify-center space-x-3">
+                <Search size={24} />
+                <span>Analyze for Bias & Insights</span>
               </div>
             )}
           </Button>
