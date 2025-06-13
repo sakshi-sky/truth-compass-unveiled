@@ -35,9 +35,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl mb-4 text-[#829ec7] font-medium">
               Paste an article or URL to analyze sentiment, tone, and political leaning.
             </p>
-            <p className="text-lg text-slate-500 mb-16 font-light tracking-wide">
-              News & Nuance
-            </p>
+            <p className="text-lg text-slate-500 mb-16 font-light tracking-wide">Uncover the Bias. Understand the News.</p>
           </div>
           
           {/* Action Buttons with Enhanced Interactions */}
@@ -92,12 +90,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-4">
-              <h3 className="text-2xl font-bold text-slate-800">Nuze</h3>
-              <p className="text-slate-600 font-medium">News & Nuance</p>
-            </div>
-            <p className="text-slate-500">
-              © 2024 Nuze. Promoting informed, balanced news consumption.
+              <h3 className="text-2xl font-bold text-slate-800">
+            </h3>
+              <p className="text-slate-600 font-medium">
             </p>
+            </div>
+            <p className="text-slate-500">© 2025 Nuze. Promoting informed, balanced news consumption and helping you put the full story together.</p>
           </div>
         </div>
       </footer>
